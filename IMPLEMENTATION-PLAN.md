@@ -1,4 +1,4 @@
-# Implementation Plan: Ajaia Collaborative Docs
+# Implementation Plan: Collaborative Docs
 
 **For AI agents (Codex, Copilot):** this is the source of truth for scope and order of work. Implement only the phase or task you are asked to implement. Do not build anything listed under "Do not build". If this file conflicts with the existing code's conventions, follow the existing code and report the conflict.
 
@@ -44,7 +44,7 @@ Lightweight Google Docs-style editor. Priorities, in order: working end-to-end, 
 
 **Only if ahead:** delete confirm dialog, `beforeunload` warning, owner name on shared cards, word count, demo-credentials box on login.
 
-**Do not build:** realtime collaboration, autosave, comments, version history, DOCX/PDF/export, roles or teams, email invites, notifications, search, folders, changes to starter-kit auth logic.
+**Do not build:** realtime collaborative, autosave, comments, version history, DOCX/PDF/export, roles or teams, email invites, notifications, search, folders, changes to starter-kit auth logic.
 
 ## 5. Database
 
@@ -169,7 +169,7 @@ Each phase lists objective, work, verification and definition of done. An agent 
 
 ### Phase 1: Setup and first deploy
 
-- **Work:** scaffold with `laravel new ajaia-docs --using=laravel/react-starter-kit` (Pest, SQLite, Laravel auth); `npm i @tiptap/react @tiptap/pm @tiptap/starter-kit`; push to GitHub; create Cloud app and deploy the bare kit.
+- **Work:** scaffold with `laravel new collaborative-docs --using=laravel/react-starter-kit` (Pest, SQLite, Laravel auth); `npm i @tiptap/react @tiptap/pm @tiptap/starter-kit`; push to GitHub; create Cloud app and deploy the bare kit.
 - **Verify:** `composer run dev` works locally; live URL shows login page.
 - **Done:** app runs locally and on the live URL.
 
@@ -277,7 +277,7 @@ Each phase lists objective, work, verification and definition of done. An agent 
 
 ## 17. Submission package
 
-- `ajaia-docs-source.zip` via `git archive --format=zip -o ajaia-docs-source.zip HEAD` (tracked files only). Verify with `unzip -l ajaia-docs-source.zip | grep -E "\.env$|node_modules|vendor/|\.sqlite"`, which must return nothing. `.env.example` should be present.
+- `collaborative-docs-source.zip` via `git archive --format=zip -o collaborative-docs-source.zip HEAD` (tracked files only). Verify with `unzip -l collaborative-docs-source.zip | grep -E "\.env$|node_modules|vendor/|\.sqlite"`, which must return nothing. `.env.example` should be present.
 - `README.md`, `ARCHITECTURE.md`, `AI-WORKFLOW.md`, `SUBMISSION.md`
 - `DEMO-VIDEO.txt` containing the video URL
 - Optional screenshots: dashboard, editor, share dialog

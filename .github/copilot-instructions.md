@@ -1,4 +1,4 @@
-# Copilot Instructions: Ajaia Collaborative Docs
+# Copilot Instructions: Collaborative Docs
 
 [Always read and reference this](/IMPLEMENTATION-PLAN.md)
 
