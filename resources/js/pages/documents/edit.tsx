@@ -11,7 +11,6 @@ import { Badge } from '@/components/ui/badge';
 import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import {
     show,
     update,
@@ -107,16 +106,16 @@ export default function DocumentsEdit({ document, shares, can }: Props) {
         <>
             <Head title={document.title} />
 
-            <div className="flex flex-1 flex-col gap-6 p-4">
+            <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-5 px-4 py-5 sm:px-8 sm:py-8">
                 <h1 className="sr-only">{document.title}</h1>
 
-                <div className="flex flex-wrap items-center justify-between gap-4">
-                    <div className="grid gap-2">
-                        <Label htmlFor="title">Title</Label>
+                <section className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="min-w-0 flex-1">
                         <Input
                             id="title"
                             name="title"
                             value={title}
+                            aria-label="Document title"
                             onChange={(event) => {
                                 setTitle(event.currentTarget.value);
                                 setTitleError(undefined);
@@ -125,6 +124,7 @@ export default function DocumentsEdit({ document, shares, can }: Props) {
                             readOnly={!can.update}
                             required
                             maxLength={255}
+                            className="h-11 max-w-2xl border-transparent bg-transparent px-2 text-lg font-semibold tracking-tight shadow-none focus-visible:border-input focus-visible:bg-white focus-visible:shadow-xs sm:text-xl dark:focus-visible:bg-card"
                             aria-invalid={
                                 titleError !== undefined ||
                                 saveStatus === 'Error'
@@ -133,7 +133,8 @@ export default function DocumentsEdit({ document, shares, can }: Props) {
                         <InputError message={titleError} />
                     </div>
 
-                    <div className="flex items-center gap-4">
+                    <div className="flex flex-wrap items-center gap-3">
+                        <SaveStatus status={saveStatus} />
                         {!can.update ? (
                             <Badge variant="secondary">View only</Badge>
                         ) : null}
@@ -143,27 +144,27 @@ export default function DocumentsEdit({ document, shares, can }: Props) {
                                 shares={shares}
                             />
                         ) : null}
-                        <SaveStatus status={saveStatus} />
-                        <Button
-                            type="button"
-                            disabled={
-                                !can.update ||
-                                !editor ||
-                                saveStatus === 'Saving…'
-                            }
-                            onClick={saveDocument}
-                        >
-                            {saveStatus === 'Saving…' ? 'Saving…' : 'Save'}
-                        </Button>
+                        {can.update ? (
+                            <Button
+                                type="button"
+                                disabled={!editor || saveStatus === 'Saving…'}
+                                onClick={saveDocument}
+                                className="min-w-20 shadow-sm"
+                            >
+                                {saveStatus === 'Saving…' ? 'Saving…' : 'Save'}
+                            </Button>
+                        ) : null}
                     </div>
-                </div>
+                </section>
 
-                <RichEditor
-                    content={document.content}
-                    editable={can.update}
-                    onChange={() => setSaveStatus('Unsaved changes')}
-                    onEditorReady={setEditor}
-                />
+                <div className="rounded-xl border bg-white p-2 shadow-sm sm:p-3 dark:bg-card">
+                    <RichEditor
+                        content={document.content}
+                        editable={can.update}
+                        onChange={() => setSaveStatus('Unsaved changes')}
+                        onEditorReady={setEditor}
+                    />
+                </div>
             </div>
         </>
     );

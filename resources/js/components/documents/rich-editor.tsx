@@ -49,7 +49,7 @@ export default function RichEditor({
             <EditorToolbar editor={editor} editable={editable} />
             <EditorContent
                 editor={editor}
-                className="min-h-96 rounded-md border bg-background px-6 py-5"
+                className="min-h-[60vh] rounded-lg border border-slate-200 bg-white px-5 py-8 shadow-sm sm:px-12 sm:py-12 dark:border-border dark:bg-card [&_.tiptap]:mx-auto [&_.tiptap]:min-h-[52vh] [&_.tiptap]:max-w-3xl [&_.tiptap]:text-[15px] [&_.tiptap]:leading-7"
             />
         </div>
     );

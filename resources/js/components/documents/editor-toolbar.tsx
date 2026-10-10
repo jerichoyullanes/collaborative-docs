@@ -40,7 +40,7 @@ export default function EditorToolbar({ editor, editable }: Props) {
 
     return (
         <div
-            className="flex flex-wrap items-center gap-1 rounded-md border p-2"
+            className="flex flex-wrap items-center gap-1 rounded-lg border bg-slate-50/80 p-1.5 dark:bg-slate-900/40"
             role="toolbar"
             aria-label="Text formatting"
         >
@@ -146,7 +146,10 @@ export default function EditorToolbar({ editor, editable }: Props) {
             >
                 <ListOrdered />
             </Button>
-            <span className="mx-1 h-6 border-l" aria-hidden="true" />
+            <span
+                className="mx-1 h-6 border-l border-slate-300 dark:border-slate-700"
+                aria-hidden="true"
+            />
             <Button
                 type="button"
                 variant="ghost"
