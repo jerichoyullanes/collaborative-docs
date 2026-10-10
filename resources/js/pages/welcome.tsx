@@ -1,17 +1,17 @@
-import { Head, Link, usePage } from "@inertiajs/react";
+import { Link, usePage } from '@inertiajs/react';
 import {
     ArrowRight,
     Clock3,
     FileText,
     LockKeyhole,
     UsersRound,
-} from "lucide-react";
-import AppLogo from "@/components/app-logo";
-import { dashboard, login, register } from "@/routes";
+} from 'lucide-react';
+import AppLogo from '@/components/app-logo';
+import { dashboard, login, register } from '@/routes';
 
 export default function Welcome() {
     const { auth, currentTeam } = usePage().props;
-    const dashboardUrl = currentTeam ? dashboard(currentTeam.slug) : "/";
+    const dashboardUrl = currentTeam ? dashboard(currentTeam.slug) : '/';
     const primaryHref = auth.user ? dashboardUrl : register();
 
     return (
@@ -81,8 +81,8 @@ export default function Welcome() {
                                     className="inline-flex h-11 items-center justify-center gap-2 rounded-md bg-primary px-5 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
                                 >
                                     {auth.user
-                                        ? "Go to your documents"
-                                        : "Create your workspace"}
+                                        ? 'Go to your documents'
+                                        : 'Create your workspace'}
                                     <ArrowRight className="size-4" />
                                 </Link>
                                 <a
@@ -228,7 +228,7 @@ export default function Welcome() {
                             href={primaryHref}
                             className="inline-flex h-11 items-center justify-center gap-2 self-start rounded-md bg-primary px-5 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none sm:self-auto"
                         >
-                            {auth.user ? "Open workspace" : "Get started"}
+                            {auth.user ? 'Open workspace' : 'Get started'}
                             <ArrowRight className="size-4" />
                         </Link>
                     </section>
@@ -253,7 +253,7 @@ export default function Welcome() {
                                 href={auth.user ? dashboardUrl : login()}
                                 className="transition-colors hover:text-foreground"
                             >
-                                {auth.user ? "Workspace" : "Sign in"}
+                                {auth.user ? 'Workspace' : 'Sign in'}
                             </Link>
                             {!auth.user && (
                                 <Link
