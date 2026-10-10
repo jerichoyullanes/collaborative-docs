@@ -96,13 +96,13 @@ export default function Login({
 
                             <Button
                                 type="submit"
-                                className="mt-4 w-full"
+                                className="mt-2 h-11 w-full shadow-sm"
                                 tabIndex={4}
                                 disabled={processing}
                                 data-test="login-button"
                             >
                                 {processing && <Spinner />}
-                                Log in
+                                {processing ? 'Signing in…' : 'Sign in'}
                             </Button>
                         </div>
 
@@ -124,7 +124,7 @@ export default function Login({
                 )}
             </Form>
 
-            <div className="mt-6 rounded-lg border bg-muted/40 p-4 text-sm">
+            <div className="mt-6 rounded-lg border bg-slate-50/80 p-4 text-sm dark:bg-slate-900/30">
                 <p className="mb-3 font-medium">Demo accounts</p>
                 <div className="grid gap-3 text-muted-foreground">
                     <p>

@@ -102,12 +102,15 @@ export default function Register({ passwordRules, teamInvitation }: Props) {
 
                             <Button
                                 type="submit"
-                                className="mt-2 w-full"
+                                className="mt-2 h-11 w-full shadow-sm"
                                 tabIndex={5}
+                                disabled={processing}
                                 data-test="register-user-button"
                             >
                                 {processing && <Spinner />}
-                                Create account
+                                {processing
+                                    ? 'Creating account…'
+                                    : 'Create account'}
                             </Button>
                         </div>
 
